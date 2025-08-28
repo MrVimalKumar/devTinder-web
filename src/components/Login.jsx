@@ -9,6 +9,7 @@ import { BASE_URL } from "../utlis/constants";
 const Login = () => {
   const [email, setEmail] = useState("vimal21082003@gmail.com");
   const [password, setPassword] = useState("Vimal..2123");
+  const [error,setError]= useState("")
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,10 +21,9 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data))
-      navigate("/")
-      
+      navigate("/")  
     } catch (err) {
-      console.log("ERROR : " + err.message);
+      setError(err.response.data)
     }
   };
 
@@ -73,6 +73,7 @@ const Login = () => {
               At least one uppercase letter
             </p>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions">
             <button className="btn btn-primary mt-2 " onClick={handleLogin}>
               Login
