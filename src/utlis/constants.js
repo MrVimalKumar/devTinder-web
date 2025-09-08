@@ -1,3 +1,2 @@
-export const BASE_URL = "https://devtinder-backend-zgmy.onrender.com"
-
+export const BASE_URL = "https://devtinder-zcl2.onrender.com"
 
