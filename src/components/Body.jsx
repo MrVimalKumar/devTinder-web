@@ -10,21 +10,22 @@ import { addUser } from "../utlis/userSlice";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const fetchUser = async() => {
+  const fetchUser = async () => {
     try {
-      const res = await axios.get(BASE_URL + "/profile", { withCredentials: true });
+      const res = await axios.get(BASE_URL + "/profile", {
+        withCredentials: true,
+      });
       dispatch(addUser(res.data));
     } catch (err) {
-        if(err.status === 401){
-            navigate("/login")
-        }
-      console.log(err.message);
-
+      if (err.response && err.response.status === 401) {
+        navigate("/login");
+      }
+      console.error(err.response ? err.response.data : err.message);
     }
   };
   useEffect(() => {
     fetchUser();
-  },[]);
+  }, []);
 
   return (
     <div>
