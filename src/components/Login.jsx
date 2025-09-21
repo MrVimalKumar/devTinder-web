@@ -127,7 +127,7 @@ const Login = () => {
               {isLogin ? "login" : "SignUp"}
             </button>
           </div>
-          <p className="cursor-pointer" onClick={()=>{setIsLogin((value)=>(!value))}}>{isLogin? "New User Sign UP": "Existing user Login"}</p>
+          <p className="cursor-pointer" onClick={()=>{setIsLogin((value)=>(!value))}}>{isLogin? " New User, Sign Up ": " Existing User login "}</p>
         </div>
       </div>
     </div>
