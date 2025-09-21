@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utlis/userSlice";
 import UserCard from "./userCard";
 import { BASE_URL } from "../utlis/constants";
+import { useNavigate } from "react-router";
 
 const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // State variables for form inputs (initialize with current user data)
   const [firstName, setFirstName] = useState(user?.firstName || "");
@@ -53,8 +55,9 @@ const EditProfile = ({ user }) => {
       const res = await axios.patch(BASE_URL + "/profile/edit", profileData, {
         withCredentials: true,
       });
-
       dispatch(addUser(res.data.data));
+      navigate("/")
+
 
       // Show toast for 3 seconds
       setShowToast(true);
