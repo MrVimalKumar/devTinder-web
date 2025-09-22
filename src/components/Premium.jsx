@@ -67,7 +67,7 @@ const Premium = () => {
             onClick={() => handleBuyClick("gold")}
             className="btn btn-secondary"
           >
-            Buy Silver
+            Rs : 30 Buy Silver
           </button>
         </div>
         <div className="divider divider-horizontal"></div>
@@ -83,7 +83,7 @@ const Premium = () => {
             onClick={() => handleBuyClick("gold")}
             className="btn btn-primary"
           >
-            Buy Gold
+           Rs : 60 Buy Gold
           </button>
         </div>
       </div>
